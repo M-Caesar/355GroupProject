@@ -1,5 +1,8 @@
 package UI.Windows;
 
+import src.Event;
+import src.EventDOA;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

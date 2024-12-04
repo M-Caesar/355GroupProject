@@ -33,9 +33,9 @@ public class Schedule {
     public List<Event> getEventbyDate(LocalDateTime date) {
         List<Event> result = new ArrayList<>();
         for (Event event : this.events) {
-            if(event.getEventTime().toLocalDate().equals(date)) {
+            /*if(event.getEventTime().toLocalDate().equals(date)) {
                 result.add(event);
-            }
+            }*/
         }
         return result;
     }
