@@ -9,9 +9,12 @@ import java.util.Random;
 
 public class DataSeeder {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/HospitalManagement?useSSL=false&serverTimezone=America/New_York";
+    //private static final String URL = "jdbc:mysql://localhost:3306/HospitalManagement?useSSL=false&serverTimezone=America/New_York";
+    //private static final String USER = "root";
+    //private static final String PASSWORD = "SQL355%Grouppa55";
+    private static final String URL = "jdbc:mysql://localhost:3306/hospitalmanagement?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=TRUE";
     private static final String USER = "root";
-    private static final String PASSWORD = "SQL355%Grouppa55";
+    private static final String PASSWORD = "355Password!"; // Replace with your root password
     private static final int NUMBER_OF_PATIENTS = 1000; // Number of patients to generate
     private static final int NUMBER_OF_PHYSICIANS = 10; // Number of physicians to generate
 

@@ -153,7 +153,7 @@ public class PatientType {
         LocalDateTime date = LocalDateTime.of(month,day,year,hr,min);
         System.out.println("Enter the patient room number");
         String room = scanner.nextLine();
-        Event newEvent = new Event(ename,etype,einfo,date,room);
+        Event newEvent = new Event(ename,etype,einfo,date,date,room);
         this.schedule.addEvent(newEvent);
 
     }

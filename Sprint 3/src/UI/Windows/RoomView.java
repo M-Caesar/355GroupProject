@@ -334,11 +334,11 @@ public class RoomView {
 		String[] argsStartTime = {"Invalid Start Time"};
 		String[] argsEndTime = {"Invalid End Time"};
 
-		String currentTime = LocalDate.now().toString();
-		currentTime = currentTime.substring(0, 8);
+		String currentTime = LocalTime.now().toString();
+		currentTime = currentTime.substring(0, 10);
 		String[] time = currentTime.split(":"); // hh:mm:ss
 
-		String currentDate = LocalTime.now().toString();
+		String currentDate = LocalDate.now().toString();
 		String[] date = currentDate.split("-"); // yyyy-mm=dd
 
 		//Check Start Time
@@ -470,8 +470,8 @@ public class RoomView {
 		}
 
 		resetTextBoxes();
-
-		for(Event event : getEvents()){
+		EventDOA events = new EventDOA();
+		for(Event event : events.getAllEvents()){
 			int num = isConflictingDate(event, dateStart.getText(), dateEnd.getText());
 
 			if(num == 0){
@@ -481,14 +481,14 @@ public class RoomView {
 			else if(num == 1){
 				boolean Conflicting = isConflictingTime(event, timeStart.getText(), timeEnd.getText());
 				if(Conflicting){
-					int roomNumber = Integer.parseInt(event.getRoom());
+					int roomNumber = Integer.parseInt(event.getEventRoom());
 					setConflict(roomNumber);
 				}
 				else{continue;}
 			}
 
 			else if(num == 2){
-				int roomNumber = Integer.parseInt(event.getRoom());
+				int roomNumber = Integer.parseInt(event.getEventRoom());
 				setConflict(roomNumber);
 			}
 		}
@@ -570,9 +570,10 @@ public class RoomView {
 	//returns 1 if need to check times
 	//returns 2 if guaranteed conflict
 	private int isConflictingDate(Event event, String dateStart, String dateEnd){
-		String eventStartDate = event.getStartDate();
-		String eventEndDate = event.getEndDate();
-
+		//String eventStartDate = event.getStartDate();
+		//String eventEndDate = event.getEndDate();
+		String eventStartDate = String.valueOf(event.getFormattedEventStartDate());
+		String eventEndDate = String.valueOf(event.getFormattedEventEndDate());
 		if(compareDates(eventStartDate, dateEnd) == -1 || compareDates(dateStart, eventEndDate) == -1){
 			return 0;
 		}
@@ -616,8 +617,12 @@ public class RoomView {
 	}
 
 	private boolean isConflictingTime(Event event, String timeStart, String timeEnd){
-		String eventStartTime = event.getStartTime();
-		String eventEndTime = event.getEndTime();
+		//String eventStartTime = event.getStartTime();
+		//String eventEndTime = event.getEndTime();
+
+		String eventStartTime = String.valueOf(event.getFormattedEventStartTime());
+		String eventEndTime = String.valueOf(event.getFormattedEventEndTime());
+		String delim = "T";
 
 		if(compareTimes(eventStartTime, timeEnd) == -1 || compareTimes(timeStart, eventEndTime) == -1){
 			return false;

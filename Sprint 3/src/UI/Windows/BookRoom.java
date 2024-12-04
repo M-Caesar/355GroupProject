@@ -1,5 +1,8 @@
 package UI.Windows;
 
+import src.Event;
+import src.EventDOA;
+
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
@@ -228,7 +231,7 @@ public class BookRoom {
 		}
 
 		Event newEvent = new Event();
-		addEvent(event);
+		EventDOA.addEvent(newEvent);
 
 		HomePage.main(null);
 		frame.dispose();

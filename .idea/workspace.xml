@@ -4,15 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" name="Changes" comment="Got add patient frontend working">
+    <list default="true" id="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" name="Changes" comment="Updated Event class">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/355GroupProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/355GroupProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_1_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprint 2/src/UI/Windows/EditPatientData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 2/src/UI/Windows/EditPatientData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprint 2/src/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 2/src/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 2/src/src/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 2/src/src/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/UI/Windows/BookRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/UI/Windows/BookRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/UI/Windows/RoomView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/UI/Windows/RoomView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/src/DataSeeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/src/DataSeeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/src/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/src/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/src/PatientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/src/PatientType.java" afterDir="false" />
+    </list>
+    <list id="be8b2287-827f-4d5d-ad37-0056a2003294" name="Changes by nicho" comment="">
+      <change beforePath="$PROJECT_DIR$/Sprint 2/src/src/DataSeeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 2/src/src/DataSeeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 2/src/src/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 2/src/src/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/UI/Windows/RoomView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/UI/Windows/RoomView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/src/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint 3/src/src/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint 3/src/src/Schedule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -22,11 +44,31 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="RoomBookingoffMain" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/Sprint 2/src/src/DatabaseConnection.java">
+      <ranges>
+        <range start1="11" end1="12" start2="11" end2="12" changelist="be8b2287-827f-4d5d-ad37-0056a2003294" />
+        <range start1="13" end1="14" start2="13" end2="14" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/Sprint 3/src/UI/Windows/RoomView.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="5" changelist="be8b2287-827f-4d5d-ad37-0056a2003294" />
+        <range start1="336" end1="338" start2="339" end2="341" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+        <range start1="340" end1="341" start2="343" end2="344" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+        <range start1="472" end1="474" start2="475" end2="477" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+        <range start1="483" end1="484" start2="486" end2="487" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+        <range start1="490" end1="491" start2="493" end2="494" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+        <range start1="572" end1="575" start2="575" end2="579" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+        <range start1="618" end1="620" start2="622" end2="628" changelist="349e7271-8cd6-4a9a-9ff6-e0b08e139edb" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -43,11 +85,18 @@
     "Application.EditPatientData.executor": "Debug",
     "Application.HomePage.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.RoomView.executor": "Debug",
     "Application.TestConnection.executor": "Run",
     "Application.Unnamed.executor": "Run",
+    "Application.warningPage.executor": "Debug",
+    "Downloaded.Files.Path.Enabled": "false",
     "Maven..executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Booking-off-main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -59,6 +108,11 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -84,8 +138,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -102,6 +156,9 @@
       <workItem from="1731632055811" duration="172000" />
       <workItem from="1731703461936" duration="1939000" />
       <workItem from="1731716980813" duration="5953000" />
+      <workItem from="1733269264671" duration="16870000" />
+      <workItem from="1733290285256" duration="4534000" />
+      <workItem from="1733324999234" duration="903000" />
     </task>
     <task id="LOCAL-00001" summary="All systems combined&#10;&#10;Ryan is preparing to test">
       <option name="closed" value="true" />
@@ -135,7 +192,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731705332181</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added room, room controller and room service classes. Edited events class">
+      <option name="closed" value="true" />
+      <created>1733268436506</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733268436506</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added room, room controller and room service classes. Edited events class">
+      <option name="closed" value="true" />
+      <created>1733268654834</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733268654834</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +230,8 @@
     <MESSAGE value="Added full functionality for patient added method in main" />
     <MESSAGE value="Added full functionality for patient edit method in main" />
     <MESSAGE value="Got add patient frontend working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got add patient frontend working" />
+    <MESSAGE value="Added room, room controller and room service classes. Edited events class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added room, room controller and room service classes. Edited events class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -196,6 +270,16 @@
           <url>file://$PROJECT_DIR$/Sprint 2/src/src/Main.java</url>
           <line>350</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Sprint 3/src/UI/Windows/RoomView.java</url>
+          <line>465</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Sprint 3/src/UI/Windows/RoomView.java</url>
+          <line>469</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Sprint 2/src/src/Main.java</url>
