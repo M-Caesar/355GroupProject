@@ -2,6 +2,7 @@ package src;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 //Class for creating event objects
 public class    Event {
     private String eventName;
@@ -9,6 +10,8 @@ public class    Event {
     private String eventDescription;
     private LocalDateTime eventStartTime; // date and time of event
     private LocalDateTime eventEndTime;
+    //private LocalDateTime eventStartDate;
+    //private LocalDateTime eventEndDate;
     private String eventRoom;
 
     //default constructor
@@ -18,12 +21,15 @@ public class    Event {
         this.eventDescription = "";
         this.eventStartTime = null;
         this.eventEndTime = null;
+       // this.eventStartDate = null;
+        //this.eventEndDate = null;
         this.eventRoom = "";
     }
 
     //initialized constructor
     public Event(String eventName, String eventType, String eventDescription, LocalDateTime eventSTime, LocalDateTime eventETime, String eventRoom) {
         this.eventName = eventName;
+        this.eventType = eventType;
         this.eventStartTime = eventSTime;
         this.eventEndTime = eventETime;
         this.eventDescription = eventDescription;

@@ -338,7 +338,7 @@ public class RoomView {
 		String[] argsEndTime = {"Invalid End Time"};
 
 		String currentTime = LocalTime.now().toString();
-		currentTime = currentTime.substring(0, 10);
+		currentTime = currentTime.substring(0, 8);
 		String[] time = currentTime.split(":"); // hh:mm:ss
 
 		String currentDate = LocalDate.now().toString();
@@ -352,10 +352,22 @@ public class RoomView {
 		}
 		for(int i = 0 ; i < 3 ; i++){
 			int timeListVal = Integer.parseInt(startTimeList[i]);
-			if(timeListVal < Integer.parseInt(time[i]) && timeListVal < 60 && timeListVal >= 0){
-				warningPage.main(argsStartTime);
-				return false;
+			if(i == 0){
+				if(timeListVal < 0 || timeListVal > 24){
+					warningPage.main(argsStartTime);
+					return false;
+				}
 			}
+			else if(i > 0){
+				if(timeListVal < 0 || timeListVal > 60){
+					warningPage.main(argsStartTime);
+					return false;
+				}
+			}
+			// if(timeListVal < Integer.parseInt(time[i])){
+			//     warningPage.main(argsStartTime);
+			//     return false;
+			// }
 		}
 
 		//Check Start Date
@@ -372,10 +384,10 @@ public class RoomView {
 			if (i == 2){
 				if(dateListVal <= 12 && dateListVal >= 1){}
 			}
-			if(dateListVal < Integer.parseInt(date[i])){
-				warningPage.main(argsStartDate);
-				return false;
-			}
+			// if(dateListVal < Integer.parseInt(date[i])){
+			//     warningPage.main(argsStartDate);
+			//     return false;
+			// }
 		}
 
 		//Check End Time
@@ -386,23 +398,42 @@ public class RoomView {
 		}
 		for(int i = 0 ; i < 3 ; i++){
 			int timeListVal = Integer.parseInt(endTimeList[i]);
-			if(timeListVal < Integer.parseInt(time[i]) && timeListVal < 60 && timeListVal >= 0){
-				warningPage.main(argsEndTime);
-				return false;
+			if(i == 0){
+				if(timeListVal < 0 || timeListVal > 24){
+					warningPage.main(argsEndTime);
+					return false;
+				}
 			}
+			else if(i > 0){
+				if(timeListVal < 0 || timeListVal > 60){
+					warningPage.main(argsEndTime);
+					return false;
+				}
+			}
+			// if(timeListVal < Integer.parseInt(time[i])){
+			//     warningPage.main(argsEndTime);
+			//     return false;
+			// }
 		}
 
 		//Check End Date
 		String[] endDateList = endDate.split("-");
-		if(endDateList.length != 3){
+		if(startDateList.length != 3){
 			warningPage.main(argsEndDate);
 			return false;
 		}
 		for(int i = 0 ; i < 3 ; i++){
-			if(Integer.parseInt(endDateList[i]) < Integer.parseInt(date[i])){
-				warningPage.main(argsEndDate);
-			return false;
+			int dateListVal = Integer.parseInt(endDateList[i]);
+			if (i == 1){
+				if(checkValidDay(endDateList)){}
 			}
+			if (i == 2){
+				if(dateListVal <= 12 && dateListVal >= 1){}
+			}
+			// if(dateListVal < Integer.parseInt(date[i])){
+			//     warningPage.main(argsEndDate);
+			//     return false;
+			// }
 		}
 
 		return true;
@@ -474,7 +505,8 @@ public class RoomView {
 
 		resetTextBoxes();
 		EventDOA events = new EventDOA();
-		for(Event event : events.getAllEvents()){
+		for(Event event : EventDOA.getAllEvents()){
+			event.printEvent(); // printing to make sure all events are being shown
 			int num = isConflictingDate(event, dateStart.getText(), dateEnd.getText());
 
 			if(num == 0){
@@ -577,11 +609,20 @@ public class RoomView {
 		//String eventEndDate = event.getEndDate();
 		String eventStartDate = String.valueOf(event.getFormattedEventStartDate());
 		String eventEndDate = String.valueOf(event.getFormattedEventEndDate());
-		if(compareDates(eventStartDate, dateEnd) == -1 || compareDates(dateStart, eventEndDate) == -1){
+
+		String[] dateStartParts = dateStart.split("-");
+		String[] dateEndParts = dateEnd.split("-");
+
+		// Swap the middle two values (dd and MM) to get year-month-day
+		String formattedDateStart = dateStartParts[0] + "-" + dateStartParts[2] + "-" + dateStartParts[1];
+		String formattedDateEnd = dateEndParts[0] + "-" + dateEndParts[2] + "-" + dateEndParts[1];
+
+
+		if(compareDates(eventStartDate, formattedDateEnd) == -1 || compareDates(formattedDateStart, eventEndDate) == -1){
 			return 0;
 		}
 
-		if(compareDates(eventStartDate, dateStart) >= 1 && compareDates(eventEndDate, dateEnd) <= 1){
+		if(compareDates(eventStartDate, formattedDateStart) >= 1 && compareDates(eventEndDate, formattedDateEnd) <= 1){
 			return 2;
 		}
 
@@ -627,9 +668,15 @@ public class RoomView {
 		String eventEndTime = String.valueOf(event.getFormattedEventEndTime());
 		String delim = "T";
 
-		if(compareTimes(eventStartTime, timeEnd) == -1 || compareTimes(timeStart, eventEndTime) == -1){
+		String formattedTimeStart = eventStartTime.replace(":", "-");
+		String formattedTimeEnd = eventEndTime.replace(":", "-");
+		/*if(compareTimes(eventStartTime, timeEnd) == -1 || compareTimes(timeStart, eventEndTime) == -1){
+			return false;
+		} */
+		if (compareTimes(timeEnd, formattedTimeStart) <= 0 || compareTimes(timeStart, formattedTimeEnd) >= 0) {
 			return false;
 		}
+
 
 		return true;
 	}
@@ -637,7 +684,7 @@ public class RoomView {
 	//return 0 if equals
 	//return 1 if time2 is after time1
 	//return -1 if time1 is after time2
-	private int compareTimes(String time1, String time2){ // hh-mm-ss
+	private int compareTimes(String time2, String time1){ // hh-mm-ss
 		String[] time1List = time1.split("-");
 		String[] time2List = time2.split("-");
 
@@ -648,12 +695,25 @@ public class RoomView {
 			return 1;
 		}
 
-		if(Integer.parseInt(time1List[1]) - Integer.parseInt(time2List[1]) >= 30){ //need at least 30 minute buffer to be different enough
+		int totalMinutes1 = Integer.parseInt(time1List[0]) * 60 + Integer.parseInt(time1List[1]);
+		int totalMinutes2 = Integer.parseInt(time2List[0]) * 60 + Integer.parseInt(time2List[1]);
+
+		if (totalMinutes1 > totalMinutes2) {
+			if (totalMinutes1 - totalMinutes2 >= 30) {
+				return -1; // time1 is more than 30 minutes after time2
+			}
+		} else if (totalMinutes2 > totalMinutes1) {
+			if (totalMinutes2 - totalMinutes1 >= 30) {
+				return 1; // time2 is more than 30 minutes after time1
+			}
+		}
+
+		/*if(Integer.parseInt(time1List[1]) - Integer.parseInt(time2List[1]) >= 30){ //need at least 30 minute buffer to be different enough
 			return -1;
 		}
 		if(Integer.parseInt(time2List[1]) - Integer.parseInt(time1List[1]) >= 30){ //need at least 30 minute buffer to be different enough
 			return 1;
-		}
+		}*/
 
 		return 0;
 	}

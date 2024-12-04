@@ -20,6 +20,7 @@ import javax.swing.JTextArea;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 
 public class BookRoom {
 
@@ -229,8 +230,29 @@ public class BookRoom {
 			JOptionPane.showMessageDialog(null, "PCP must be an integer between 1 and 10", "ERROR", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
+		// Creating start time LocalDateTime obj /////////////
+		String startDate = startDateArea.getText();
+		String startTime = txtST.getText();
 
-		Event newEvent = new Event();
+		String[] startdateParts = startDate.split("-");
+		String startrearrangedDate = startdateParts[0] + "-" + startdateParts[2] + "-" + startdateParts[1];
+
+		// Combine and parse the date and time
+		String dateTimeString = startrearrangedDate + "T" + startTime.replace("-", ":");
+		LocalDateTime startDateTime = LocalDateTime.parse(dateTimeString);
+
+		// Creating end time LocalDateTime obj ///////////
+		String endDate = endDateArea.getText();
+		String endTime = txtET.getText();
+
+		String[] enddateParts = endDate.split("-");
+		String endrearrangedDate = enddateParts[0] + "-" + enddateParts[2] + "-" + enddateParts[1];
+
+		// Combine and parse the date and time
+		dateTimeString = endrearrangedDate + "T" + endTime.replace("-", ":");
+		LocalDateTime endDateTime = LocalDateTime.parse(dateTimeString);
+
+		Event newEvent = new Event(txtEvent.getText(), txtEvent.getText(), notesBox.getText(), startDateTime, endDateTime, txtRoomNum.getText());
 		EventDOA.addEvent(newEvent);
 
 		HomePage.main(null);

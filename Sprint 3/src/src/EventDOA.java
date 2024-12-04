@@ -7,22 +7,22 @@ import java.util.*;
 public class EventDOA {
 
     // Method to get all events from the database
-    public static List<Event> getAllEvents() {
-        List<Event> events = new ArrayList<>();
+    public static Event[] getAllEvents() {
+        List<Event> events = new ArrayList<>(); // Temporary list to hold events
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
 
         try {
             // 1. Establish a database connection (adjust credentials as needed)
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitalmanagement", "root", "355Password!");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitalmanagement", "root", "355Password!"); // Censored password
 
             // 2. Create a statement object to send the SQL query
             statement = connection.createStatement();
 
             // 3. Execute the SQL query to select all events
             String sql = "SELECT event_id, event_name, event_type, event_description, event_start_time, event_end_time, event_room FROM events";
-            resultSet = ((java.sql.Statement) statement).executeQuery(sql);
+            resultSet = statement.executeQuery(sql);
 
             // 4. Process the result set and create Event objects
             while (resultSet.next()) {
@@ -40,7 +40,7 @@ public class EventDOA {
                 events.add(event);
             }
         } catch (SQLException e) {
-            e.printStackTrace();  // Handle SQL exceptions
+            e.printStackTrace(); // Handle SQL exceptions
         } finally {
             // 5. Close resources (resultSet, statement, and connection)
             try {
@@ -52,8 +52,10 @@ public class EventDOA {
             }
         }
 
-        return events;  // Return the list of events
+        // Convert the list to an array and return it
+        return events.toArray(new Event[0]);
     }
+
 
     public static void addEvent(Event event) {
         // SQL statement for inserting a new event
@@ -64,9 +66,9 @@ public class EventDOA {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // Validate LocalDateTime format before inserting into DB
-            if (event.getEventStartTime() == null || event.getEventEndTime() == null) {
+            /*if (event.getEventStartTime() == null || event.getEventEndTime() == null) {
                 throw new IllegalArgumentException("Event start time or end time is not valid.");
-            }
+            } */
 
             // Set the values for the SQL query
             pstmt.setString(1, event.getEventName());
